@@ -32,6 +32,13 @@ export class PackingVisualizerComponent implements OnInit, AfterViewInit {
 
 	ngOnInit(): void { }
 
+	rotateItem() {
+		const { length, width, height } = this.item;
+		this.item.length = height;
+		this.item.width = length;
+		this.item.height = width;
+	}
+
 	ngAfterViewInit(): void {
 		this.initThree();
 		this.renderPacking();
