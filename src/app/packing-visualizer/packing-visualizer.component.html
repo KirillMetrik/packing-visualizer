@@ -1,0 +1,30 @@
+<div class="p-4 space-y-4">
+	<form (ngSubmit)="renderPacking()" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+		<div>
+			<h2 class="font-bold">Item Dimensions (cm)</h2>
+			<label>Length <input type="number" [(ngModel)]="item.length" name="itemLength" class="input" /></label>
+			<label>Width <input type="number" [(ngModel)]="item.width" name="itemWidth" class="input" /></label>
+			<label>Height <input type="number" [(ngModel)]="item.height" name="itemHeight" class="input" /></label>
+		</div>
+
+		<div>
+			<h2 class="font-bold">Box Dimensions (cm)</h2>
+			<label>Length <input type="number" [(ngModel)]="box.length" name="boxLength" class="input" /></label>
+			<label>Width <input type="number" [(ngModel)]="box.width" name="boxWidth" class="input" /></label>
+			<label>Height <input type="number" [(ngModel)]="box.height" name="boxHeight" class="input" /></label>
+			<label>Side Thickness <input type="number" [(ngModel)]="box.thickness" name="boxThickness"
+					class="input" /></label>
+		</div>
+
+		<div>
+			<h2 class="font-bold">Other</h2>
+			<label>Quantity <input type="number" [(ngModel)]="quantity" name="quantity" class="input" /></label>
+			<button type="submit"
+				class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Render</button>
+		</div>
+	</form>
+	<div *ngIf="notFitItems" class="error-message">
+		<strong>Error:</strong> {{ notFitItems }} items could not fit into the box.
+	</div>
+	<div #rendererContainer class="w-full h-[60vh] border rounded"></div>
+</div>
